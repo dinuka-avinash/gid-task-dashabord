@@ -1,6 +1,15 @@
 import streamlit as st
+import pandas as pd
 
-data = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR-cEIAKQ26fGRkvr8hnBqkmuWfzverObjQdgcC3mdbdmIx7P0QOauwzXcC0Uz_aWDfDnaKAhhp3BST/pub?output=csv"
+def load_data(sheet_url):
+    try:
+        data = pd.read_csv(sheet_url)
+        return data
+    except Exception as e:
+        st.error(f"Error loading data: {str(e)}")
+        return None
+
+data = load_data("https://docs.google.com/spreadsheets/d/e/2PACX-1vR-cEIAKQ26fGRkvr8hnBqkmuWfzverObjQdgcC3mdbdmIx7P0QOauwzXcC0Uz_aWDfDnaKAhhp3BST/pub?output=csv")
 
 # to select the MC available in the data file
 # select_MC = st.selectbox('Select MC', data['Home MC'].unique())
