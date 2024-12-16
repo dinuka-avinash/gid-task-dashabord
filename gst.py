@@ -15,7 +15,7 @@ def calculate_ogx(df, select_MC):
     ans = filtered.groupby(['Home LC', 'Product'], as_index=False).agg({
         'SU-APL': 'mean', 
         'APL-APD': 'mean'  
-    }).reset_index()
+    }).reset_index(drop=True)
     return ans
 
 def calculate_icx(df, select_MC):
@@ -24,7 +24,7 @@ def calculate_icx(df, select_MC):
     ans = filtered.groupby(['Host LC', 'Product'], as_index=False).agg({
         # 'SU-APL': 'mean',  
         'APL-APD': 'mean'  
-    }).reset_index()
+    }).reset_index(drop=True)
     return ans
 
 def main():
