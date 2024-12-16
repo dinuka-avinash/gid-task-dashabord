@@ -16,7 +16,7 @@ def load_data(sheet_url):
 
 def calculate_(df, select_MC):
     filtered = df[df['Home MC'] == select_MC]
-    ans = filtered.groupby('Home MC')['SU-APL'].average().reset_index()
+    ans = filtered.groupby('Home MC')['SU-APL'].sum().reset_index()
     ans_by_product = ans.groupby('Product')
 
     return ans_by_product
@@ -25,7 +25,7 @@ def main():
     data = load_data("https://docs.google.com/spreadsheets/d/e/2PACX-1vR-cEIAKQ26fGRkvr8hnBqkmuWfzverObjQdgcC3mdbdmIx7P0QOauwzXcC0Uz_aWDfDnaKAhhp3BST/pub?output=csv")
     
     st.title("GST")
-    st.write(data)
+    # st.write(data)
     select_MC = st.selectbox('Select MC', data['Home MC'].unique())
     ans = calculate_(data, select_MC)
     st.write(ans)
