@@ -58,48 +58,7 @@ def main():
 
     select_MC_for_ogx = st.selectbox('Select MC', data['Home MC'].unique())
     ogx_ans = calculate_ogx(data, select_MC_for_ogx)
-    st.markdown(
-        """
-    <style>
-    th, td {
-        font-size: 20px !important;
-        padding: 10px; /* Add padding for better spacing */
-        text-align: center; /* Center-align text */
-        font-weight: 900;
-    }
-    table {
-        width: 100%; /* Full width */
-        border-collapse: collapse; /* Collapse borders */
-    }
-    th {
-        background-color: #FCFCFC; /* Light gray background for headers */
-        border: 5px solid #ddd; /* Add borders to header */
-    }
-    td {
-        border: 1px solid #ddd; /* Add borders to cells */
-    }
-    thead th {
-        background-color: green !important; /* Set the first row's background color to green */
-        color: white !important; /* Optional: Set text color to white for contrast */
-    }
-
-    /* Add media queries for responsiveness */
-    @media screen and (max-width: 768px) {
-        th, td {
-            font-size: 16px !important; /* Reduce font size for small screens */
-            padding: 8px; /* Adjust padding for small screens */
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        th, td {
-            font-size: 11px !important; /* Further reduce font size for very small screens */
-            padding: 6px; /* Further adjust padding */
-        }
-    }
-</style>
-
-    """, unsafe_allow_html=True)
+    
     st.write(ogx_ans)
 
     st.divider()
