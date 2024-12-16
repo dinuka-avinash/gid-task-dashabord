@@ -1,0 +1,183 @@
+query MemberLeadsListQuery(
+  $page: Int
+  $perPage: Int
+  $filters: MemberLeadFilter
+  $q: String
+  $sort: String
+) {
+  memberLeads(
+    page: $page
+    per_page: $perPage
+    q: $q
+    filters: $filters
+    sort: $sort
+  ) {
+    ...MemberLeadsList
+    __typename
+  }
+}
+
+fragment MemberLeadsList on MemberLeadList {
+  data {
+    academic_level {
+      id
+      name
+      __typename
+    }
+    backgrounds {
+      id
+      constant_id
+      constant_name
+      __typename
+    }
+    checklist_response {
+      id
+      survey {
+        id
+        title
+        __typename
+      }
+      __typename
+    }
+    motivation_reason {
+      id
+      name
+      __typename
+    }
+    comments_count
+    country_code
+    created_at
+    created_via
+    creator {
+      id
+      full_name
+      __typename
+    }
+    date_moved_to_contacted
+    date_moved_to_in_process
+    date_moved_to_accepted
+    date_moved_to_rejected
+    date_of_birth
+    email
+    employment_status {
+      id
+      alias_name
+      type_id
+      name
+      type_name
+      __typename
+    }
+    home_lc {
+      id
+      name
+      address_detail {
+        country
+        __typename
+      }
+      __typename
+    }
+    id
+    lc_alignment {
+      id
+      keywords
+      __typename
+    }
+    lead_name
+    managers {
+      id
+      full_name
+      __typename
+    }
+    moved_to_contacted_by {
+      id
+      full_name
+      __typename
+    }
+    moved_to_in_process_by {
+      id
+      full_name
+      __typename
+    }
+    moved_to_accepted_by {
+      id
+      full_name
+      __typename
+    }
+    moved_to_rejected_by {
+      id
+      full_name
+      __typename
+    }
+    permissions {
+      can_fill_checklist
+      __typename
+    }
+    person {
+      id
+      full_name
+      __typename
+    }
+    phone
+    country_code
+    preferred_mode_of_contact {
+      id
+      alias_name
+      name
+      type_id
+      __typename
+    }
+    referral_type {
+      id
+      alias_name
+      name
+      type_id
+      __typename
+    }
+    status
+    status_last_updated_at
+    updated_at
+    __typename
+  }
+  paging {
+    current_page
+    total_items
+    total_pages
+    __typename
+  }
+  __typename
+}
+{
+  "page": 1,
+  "count": 30,
+  "filters": {
+    "academic_level_ids": 21797,
+    "created_at": {
+      "from": "2024-01-13 00:00:00",
+      "to": "2024-05-20 23:59:59"
+    }
+  },
+  "q": "",
+  "id": true,
+  "lead_name": true,
+  "email": true,
+  "lead_status": true,
+  "managers": false,
+  "phone": false,
+  "country": false,
+  "date_of_birth": false,
+  "preferred_way": false,
+  "country_code": false,
+  "lead_alignment": false,
+  "backgrounds": false,
+  "academic_level": false,
+  "employment_status": false,
+  "referral": false,
+  "lead_created_via": false,
+  "last_updated": false,
+  "created_at": false,
+  "motivation_reason": false,
+  "sort": "",
+  "pagination": {
+    "page": 1
+  }
+}
