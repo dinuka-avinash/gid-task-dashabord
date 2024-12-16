@@ -16,9 +16,13 @@ def load_data(sheet_url):
 
 def calculate_(df, select_MC):
     filtered = df[df['Home MC'] == select_MC]
-    ans = filtered.groupby('Home LC')['SU-APL'].sum().reset_index()['Product']
+    # ans = filtered.groupby('Home LC')['SU-APL'].sum().reset_index()
     # ans_by_product = ans.groupby('Product')
-
+    ans = filtered.groupby('Home LC').agg({
+        'Product': '',  # Example aggregation for SU-APL
+        'SU-APL': 'mean',  # Example aggregation for SU-APL
+        'APL-APD': 'mean'  # Replace with the actual column name and aggregation method
+    }).reset_index()
     return ans
 
 def main():
