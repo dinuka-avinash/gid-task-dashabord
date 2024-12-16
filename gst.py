@@ -9,6 +9,7 @@ def load_data(sheet_url):
         st.error(f"Error loading data: {str(e)}")
         return None
 
+# access the data related to home entities for oGX
 def calculate_ogx(df, select_MC):
     filtered = df[df['Home MC'] == select_MC]
 
@@ -18,11 +19,12 @@ def calculate_ogx(df, select_MC):
     }).reset_index(drop=True)
     return ans
 
+# access the data related to host entities for iCX
 def calculate_icx(df, select_MC):
     filtered = df[df['Host MC'] == select_MC]
 
+    # focuses more on the APL-APD
     ans = filtered.groupby(['Host LC', 'Product'], as_index=False).agg({
-        # 'SU-APL': 'mean',  
         'APL-APD': 'mean'  
     }).reset_index(drop=True)
     return ans
