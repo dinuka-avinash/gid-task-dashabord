@@ -31,9 +31,22 @@ def calculate_icx(df, select_MC):
 
 def main():
     data = load_data("https://docs.google.com/spreadsheets/d/e/2PACX-1vR-cEIAKQ26fGRkvr8hnBqkmuWfzverObjQdgcC3mdbdmIx7P0QOauwzXcC0Uz_aWDfDnaKAhhp3BST/pub?output=csv")
-    st.title("🌍GST - Head of GID")
+    st.markdown(
+                    "<div style='text-align: center;'>"
+                    f"<h3>🌍 GST - Head of GID</h3>"
+                    "</div>",
+                    unsafe_allow_html=True,
+                )
+    
     st.subheader("Applicant Task")
-    st.title("📊Process Time Dashboard")
+
+    st.markdown(
+                    "<div style='text-align: center;'>"
+                    f"<h3>📊Process Time Dashboard</h3>"
+                    "</div>",
+                    unsafe_allow_html=True,
+                )
+    
     st.subheader("Prepared by Dinuka Avinash")
 
     st.divider()
