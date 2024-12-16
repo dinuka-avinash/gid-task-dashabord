@@ -38,7 +38,12 @@ def main():
                     unsafe_allow_html=True,
                 )
     
-    st.subheader("Applicant Task")
+    st.markdown(
+                    "<div style='text-align: center;'>"
+                    f"<h4>Applicant Task</h4>"
+                    "</div>",
+                    unsafe_allow_html=True,
+                )
 
     st.markdown(
                     "<div style='text-align: center;'>"
@@ -46,8 +51,6 @@ def main():
                     "</div>",
                     unsafe_allow_html=True,
                 )
-    
-    st.subheader("Prepared by Dinuka Avinash")
 
     st.divider()
 
@@ -66,6 +69,12 @@ def main():
     st.write(icx_ans)
 
     st.divider()
+    st.markdown(
+                    "<div style='text-align: left;'>"
+                    f"<h6>📊Process Time Dashboard</h6>"
+                    "</div>",
+                    unsafe_allow_html=True,
+                )
 
 if __name__ == "__main__":
     main()
