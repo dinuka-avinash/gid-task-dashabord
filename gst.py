@@ -71,7 +71,7 @@ def main():
     st.divider()
     st.markdown(
                     "<div style='text-align: left;'>"
-                    f"<h6>📊Process Time Dashboard</h6>"
+                    f"<h6>Prepared by Dinuka Avinash</h6>"
                     "</div>",
                     unsafe_allow_html=True,
                 )
