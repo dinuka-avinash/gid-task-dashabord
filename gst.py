@@ -18,7 +18,7 @@ def calculate_(df, select_MC):
     filtered = df[df['Home MC'] == select_MC]
     # ans = filtered.groupby('Home LC')['SU-APL'].sum().reset_index()
     # ans_by_product = ans.groupby('Product')
-    ans = filtered.groupby('Home LC').agg({
+    ans = filtered.groupby(['Product', 'Home LC'], as_index=False).agg({
         'SU-APL': 'mean',  # Example aggregation for SU-APL
         'APL-APD': 'mean'  # Replace with the actual column name and aggregation method
     }).reset_index()
@@ -27,8 +27,7 @@ def calculate_(df, select_MC):
 def main():
     data = load_data("https://docs.google.com/spreadsheets/d/e/2PACX-1vR-cEIAKQ26fGRkvr8hnBqkmuWfzverObjQdgcC3mdbdmIx7P0QOauwzXcC0Uz_aWDfDnaKAhhp3BST/pub?output=csv")
     
-    st.title("GST")
-    # st.write(data)
+    st.title("GST Task - Process Time Dashboard")
     select_MC = st.selectbox('Select MC', data['Home MC'].unique())
     ans = calculate_(data, select_MC)
     st.write(ans)
