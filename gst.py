@@ -16,7 +16,7 @@ def load_data(sheet_url):
 
 def calculate_(df, select_MC):
     filtered = df[df['Home MC'] == select_MC]
-    ans = filtered.groupby('Home MC')['SU-APL'].sum().reset_index()
+    ans = filtered.groupby('Home LC')['SU-APL'].sum().reset_index()
     # ans_by_product = ans.groupby('Product')
 
     return ans
