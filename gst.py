@@ -18,7 +18,7 @@ def calculate_(df, select_MC):
     filtered = df[df['Home MC'] == select_MC]
     # ans = filtered.groupby('Home LC')['SU-APL'].sum().reset_index()
     # ans_by_product = ans.groupby('Product')
-    ans = filtered.groupby(['Product', 'Home LC'], as_index=False).agg({
+    ans = filtered.groupby(['Home LC', 'Product'], as_index=False).agg({
         'SU-APL': 'mean',  # Example aggregation for SU-APL
         'APL-APD': 'mean'  # Replace with the actual column name and aggregation method
     }).reset_index()
